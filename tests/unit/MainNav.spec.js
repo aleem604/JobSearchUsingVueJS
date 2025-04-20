@@ -5,7 +5,14 @@ import MainNav from "@/components/MainNav.vue";
 
 describe("MainNav", () => {
   it("displays company name", () => {
-    const wrapper = mount(MainNav);
-    console.log(wrapper.html());
+    const companyName = "Super Job Search";
+    const wrapper = mount(MainNav, {
+      data() {
+        return {
+          company: companyName,
+        };
+      },
+    });
+    expect(wrapper.text()).toContain(companyName);
   });
 });
